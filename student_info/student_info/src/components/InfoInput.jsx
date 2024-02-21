@@ -1,9 +1,6 @@
 import React from "react";
 
 function InfoInput({name, onChange,value,placeholder, inputRef }) {
- const inputRef = useRef();
-
- console.log(inputRef.current.name);
     return (
         <input type="text" 
             name={name}
@@ -13,6 +10,10 @@ function InfoInput({name, onChange,value,placeholder, inputRef }) {
             ref={inputRef}/>
      
     );
+}
+
+InfoInput.defaultProps = {
+    ref: null
 }
 
 export default InfoInput;
