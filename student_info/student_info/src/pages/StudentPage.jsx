@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import InfoButtons from "../components/infoButtons/InfoButtons";
 import InfoInput from "../components/InfoInput";
 import StudentInfo from "../components/StudentInfo";
