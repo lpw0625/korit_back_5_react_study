@@ -4,6 +4,7 @@ let complete = [false, false, false, false];
 
 function main() {
     
+    const promises =
     [
     gugudan(0, 4, "이평원"),
     gugudan(1, 1, "이평투"),
@@ -21,10 +22,10 @@ function gugudan(index, time, name) {
 
                 setTimeout(() => {
                     console.log(`${name}: 다외웠다.`);
-                     complete = complete.map((value, cIndex) => cIndex !== index ? value : true); // 4초후 실행.
-                    if(index % 2 == 0) {
+                    //complete = complete.map((value, cIndex) => cIndex !== index ? value : true); // 4초후 실행.
+                    // if(index % 2 == 0) {
+                    // }
                     resolve(index);
-                    }
                 }, time * 1000);
 
         });
