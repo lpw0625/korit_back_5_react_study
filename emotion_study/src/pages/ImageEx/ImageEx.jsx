@@ -37,7 +37,7 @@ function ImageEx() {
 
     useEffect(() => {
         setUrl(!localStorage.getItem("urls") ? [] : JSON.parse(localStorage.getItem("urls")));
-    }, []);
+    }, [])
 
     const handleFileChange = (e) => {
         
