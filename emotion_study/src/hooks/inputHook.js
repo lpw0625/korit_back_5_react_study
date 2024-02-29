@@ -1,18 +1,23 @@
 import { useState } from "react";
 
 export function useInput() {
-    const [inputValue, setInputValue ] = useState("");
+    const [ inputValue, setInputValue ] = useState("");
 
     const onChange = (e) => {
-         const {value} = e.target;
-             setInputValue (() => value); // iv >> 매개 변수.
- }
-        return [inputValue, onChange ];
+        const { value } = e.target;
+        setInputValue(() => value);
+    }
+
+    return [ inputValue, onChange ];
 }
 
-export function useMaxValueValidateInput(maxSize) {
-
-    const [inputValue, setInputValue ] = useState("");
+/**
+ * 
+ * @param {*} maxSize 
+ * @returns 
+ */
+export function useMaxSizeValidateInput(maxSize) {
+    const [ inputValue, setInputValue ] = useState("");
 
     const onChange = (e) => {
         const { value } = e.target;
@@ -20,5 +25,6 @@ export function useMaxValueValidateInput(maxSize) {
             setInputValue(() => value);
         }
     }
-    return [inputValue, onChange ];
+
+    return [ inputValue, onChange ];
 }
