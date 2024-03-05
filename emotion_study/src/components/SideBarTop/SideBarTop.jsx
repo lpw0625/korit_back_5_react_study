@@ -1,28 +1,27 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from 'react'
 import * as S from "./style";
-import { Link } from 'react-router-dom';
-import { MENUS } from '../../constants/menu';
+import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+import { FaCaretDown, FaCaretUp } from "react-icons/fa";
+import { MENUS } from "../../constants/menu";
 
-function SideBarTop()  {
-    const [menuShow, setMenuShow ] = useState(false);
+function SideBarTop() {
+    const [ isShow, setShow ] = useState(false);
 
-
-  return (
-        <aside css= {S.layout(menuShow)}>
-            <button css={S.toggleButton} onClick={() => setMenuShow(!menuShow)}>
-                
+    return (
+        <aside css={S.layout(isShow)} >
+            <button css={S.toggleButton} onClick={() => setShow(!isShow)} >
+                {isShow ? <FaCaretUp /> : <FaCaretDown />}
             </button>
-                 <ul css={S.menuList}>
-                    {MENUS.map(menu =>
-                       <Link css={S.menuItem} to={`${menu.path}${!menu.params ? "" : "?" + Object.entries(menu.params).map(([key,value]) => key + "=" + value).join("&")}`} 
-    
-                       key={menu.id} onClick={() => setMenuShow(false)}>
-                           <li>{menu.name}</li>
-                   </Link>)}            
-                </ul>
-    </aside>
-  );
+            <ul css={S.menuList}>
+                {MENUS.map(menu => 
+                    <Link css={S.menuItem} to={`${menu.path}${!menu.params ? "" : "?" + Object.entries(menu.params).map(([key, value]) => key + "=" + value).join("&")}`} key={menu.id} onClick={() => setShow(false)}>
+                        <li>{menu.name}</li>
+                    </Link>)
+                }
+            </ul>
+        </aside>
+    );
 }
 
-export default SideBarTop
+export default SideBarTop;

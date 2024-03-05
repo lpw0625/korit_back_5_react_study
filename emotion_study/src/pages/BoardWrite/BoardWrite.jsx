@@ -7,7 +7,8 @@ import { useInput, useMaxSizeValidateInput } from "../../hooks/inputHook";
 import { useQuillInput } from "../../hooks/quillHook";
 import { useNavigate } from "react-router-dom";
 import { useLoadList } from "../../hooks/boardListHook";
-
+//import { handleSubmitClick } from "../../hooks/butttoHook";
+//import {FileChangehook} from "../../hooks/fileChangeHook"
 const layout = css`
     display: flex;
     flex-direction: column;
@@ -36,7 +37,7 @@ const boardTitle = css`
 const submitButton = css`
     box-sizing: border-box;
     margin-top: 50px;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc; 
     padding: 10px;
     width: 90%;
     background-color: white;
@@ -55,7 +56,8 @@ function BoardWrite() {
     const [ inputValue, handleInputChange ] = useMaxSizeValidateInput(20);
     const [ quillValue, handleQuillValueChange ] = useQuillInput();
     const { boardList, lastId } = useLoadList();
-    
+    // const [ handleSubmitClick ] = handleSubmitClick();
+    //const [inputImages,handleFileChange ] = FileChangehook();
     const handleSubmitClick = () => {
         let newBoardList = [];
 
@@ -71,7 +73,7 @@ function BoardWrite() {
         localStorage.setItem("boardList", JSON.stringify(newBoardList));
         alert("글 작성 완료.");
         navigate("/board/list");
-    }
+    } 
 
     return (
         <div css={layout}>

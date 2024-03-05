@@ -9,7 +9,7 @@ export const backgroundLayout = css`
         z-index: -1;
         width: 1000px;
         height: 100vh;
-        background-color: white;
+        background-color: wheat;
 
 `;
 
@@ -17,10 +17,5 @@ export const backgroundLayout = css`
 export const layout =css`
         margin: 0px auto;
         width: 1000px;
-
-
-
-
-
-
+       
 `;

@@ -41,7 +41,7 @@ function ImageEx() {
 
     const handleFileChange = (e) => {
         
-        const files = Array.from(e.target.files);
+        const files = Array.from(e.target.files); 
 
         if(files.length === 0) {
             imgFileRef.current.value = "";
@@ -91,7 +91,7 @@ function ImageEx() {
 
         );
     }
-
+    console.log(imgFileRef.current)
     return (
         <div css={layout}>
            {/* {url.map(url =>
@@ -112,6 +112,7 @@ function ImageEx() {
             
             <input style={{display: "none"}} type="file" multiple={true} ref={imgFileRef} onChange={handleFileChange}/>
             <button onClick={() => imgFileRef.current.click()}>이미지 불러오기</button>
+            
             <button onClick={handleImageUpload}>이미지 업로드</button>
         </div>
     );
